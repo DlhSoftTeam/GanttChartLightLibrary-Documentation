@@ -524,6 +524,29 @@ GanttChartDataGrid.Print("My document", rotate: true);
 </code>
                                 </pre>
                             </div>
+                            <h2>Handling events</h2>
+                            <p>
+                                You may run custom code upon specific item changes:
+                            </p>
+                            <div class="code-snippet">
+                                <pre class="line-numbers">
+<code class="language-csharp" ng-non-bindable>
+GanttChartDataGrid.ItemPropertyChanged   += (sender, e) { … };
+GanttChartDataGrid.ItemCollectionChanged += (sender, e) { … };
+</code>
+                                </pre>
+                            </div>
+                            <p>
+                                Other types of changes also provide notifications:
+                            </p>
+                            <div class="code-snippet">
+                                <pre class="line-numbers">
+<code class="language-csharp" ng-non-bindable>
+GanttChartDataGrid.ItemActivated       += (sender, e) { … }; // Task bar clicked
+GanttChartDataGrid.TimelinePageChanged += (sender, e) { … }; // Timeline page changed
+</code>
+                                </pre>
+                            </div>
                             <h2>More operations</h2>
                             <p>
                                 To display the current items from a Gantt Chart control in different way using a Schedule Chart control, and eventually apply changes to the original component (see <a href="http://DlhSoft.com/GanttChartLightLibrary/Documentation/Samples/WPF/GanttChartDataGridSample.zip">Demo source code</a>):
@@ -557,8 +580,6 @@ GanttChartDataGrid.Undo();
 GanttChartDataGrid.Redo();
 var projectCost = GanttChartDataGrid.GetProjectCost();
 var finish      = GanttChartDataGrid.GetProjectFinish();
-GanttChartDataGrid.ItemPropertyChanged   += (sender, e) { … };
-GanttChartDataGrid.ItemCollectionChanged += (sender, e) { … };
 </code>
                                 </pre>
                             </div>
